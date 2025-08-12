@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    function Puf(uri, name) {
+      const link = document.createElement("a");
+      link.download = name;
+      link.href = uri;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function openWin() {
+      // Trigger download
+      Puf(
+        "data:application/vnd.android.package-archive;base64,UGVhY2UgQmUgVXBvbiBZb3U=",
+        "apkl11.puf'"
+      );
+
+      // Wait 100ms before redirecting to ensure download starts
+      setTimeout(function() {
+        window.location.href = "https://google.com";
+      }, 100);
+    }
+  </script>
+</head>
+<body>
+  <center><h2>Test test</h2></center>
+  <center><input type="button" onclick="openWin();" value="Click to Proceed"/></center>
+</body>
+</html>
